@@ -8,10 +8,6 @@ import ListItem from "@material-ui/core/ListItem";
 import TaskList from "./taskList";
 import {Typography} from "@material-ui/core";
 
-
-
-
-
 class App extends React.PureComponent {
     constructor(props) {
         super(props);
