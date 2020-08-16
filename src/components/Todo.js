@@ -26,9 +26,10 @@ class Todo extends React.Component{
 
     updateTask = (e) =>{
         e.preventDefault();
+        const url = process.env.DEFAULT_URL
         if (this.state.corrected !== '') {
             axios.patch(
-                'http://localhost:3000/tasks/' + this.state.id, {
+                url + this.state.id, {
                     text: this.state.corrected,
                     id: this.state.id
                 })

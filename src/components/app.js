@@ -24,7 +24,7 @@ class App extends React.PureComponent {
         this.addTask = this.addTask.bind(this)
     }
     componentDidMount() {
-        let url = "http://localhost:3000/tasks"
+        let url = process.env.DEFAULT_URL
         axios.get(url)
             .then(response =>{
                 this.setState({
@@ -34,7 +34,8 @@ class App extends React.PureComponent {
     }
 
     addTask = (taskText) =>{
-        axios.post('http://localhost:3000/tasks',{
+        const url = process.env.DEFAULT_URL
+        axios.post(url,{
                 text: taskText}).then(response=>{
             this.setState({
                 tasks: this.state.tasks.concat(response.data)
@@ -43,7 +44,8 @@ class App extends React.PureComponent {
     }
 
     delTask = (id) => {
-        axios.delete('http://localhost:3000/tasks/'+id)
+        const url = process.env.DEFAULT_URL
+        axios.delete(url+id)
         this.setState({tasks: this.state.tasks.filter((task)=>{
             return task.id !== id
         })})

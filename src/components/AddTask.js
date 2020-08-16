@@ -33,6 +33,7 @@ export default class AddTask extends React.Component{
     render() {
         return (
                 <form  noValidate autoComplete="off" onSubmit={this.handleSubmit}>
+                    {console.log(process.env.DEFAULT_URL)}
                     <Grid container
                           direction='row'
                           justify='space-between'
